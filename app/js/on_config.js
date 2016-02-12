@@ -8,11 +8,10 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider) {
     url: '/',
     controller: 'ExampleCtrl as home',
     templateUrl: 'home.html',
-    title: 'Home'
+    title: 'AngularJS Tutorial App'
   });
 
   $urlRouterProvider.otherwise('/');
-
 }
 
 export default OnConfig;

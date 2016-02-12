@@ -1,7 +1,25 @@
-<h1 class="heading -large">{{ home.title | ExampleFilter }}</h1>
-
-<h3 class="heading -medium">Here is a fancy number served up courtesy of Angular: <span class="number-example">{{ home.number }}</span></h3>
-
-<img src="images/angular.png" height="100" example-directive />
-<img src="images/gulp.png" height="100" />
-<img src="images/browserify.png" height="100" />
+<h1 class="heading -xlarge">{{home.title | ExampleFilter}}</h1>
+<div class="inline-content">
+    <strong>Search:&nbsp;</strong><input ng-model="query">
+</div>
+<div class="inline-content">
+    <strong>Sort by:&nbsp;</strong>
+    <select ng-model="orderProp">
+        <option value="name">Alphabetical</option>
+        <option value="age">Newest</option>
+    </select>
+</div>
+<ul>
+    <ul>
+        <li ng-repeat="phone in home.phones | filter:query | orderBy:orderProp">
+            <div class="inline-content"><span>{{phone.name}}&nbsp;&nbsp;&nbsp;&nbsp;</span><p class="badge">{{phone.age}} Yrs. Old</p></div>
+            <p class="motto">{{phone.snippet | quoteFilter }}</p>
+        </li>
+    </ul>
+</ul>
+<p>Phone Inventory Total: {{home.phones.length}}</p>
+<div class="imgRow">
+    <img src="images/angular.png" height="100" example-directive />
+    <img src="images/gulp.png" height="100" />
+    <img src="images/browserify.png" height="100" />
+</div>

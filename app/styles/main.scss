@@ -1,9 +1,55 @@
 @import 'vars';
 @import 'typography';
 
+.inline-content {
+  flex-direction: row;
+  padding: 0.1%;
+}
+
 body {
   font-family: Helvetica, sans-serif;
-  color: $font-color--dark;
-  background-color: $background--light;
+  color: $font-color--light;
+  background-color: $background--dark;
   padding: $half-space;
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .imgRow {
+      @extend .inline-content;
+      padding-top: 5%;
+    }
+  }
+  input, select {
+    background-color: $background--dark;
+    border-width: 1px;
+    border-radius: 0.75vh;
+    color: $font-color--light;
+    padding-left: 2%;
+    outline: none;
+  }
+  span, strong {
+    white-space: nowrap;
+  }
+  ul {
+    list-style-type: none;
+  }
+}
+
+.badge {
+  color: $font-color--dark;
+  font-size: $font-size--xs;
+  font-weight: 700;
+  width: fit-content;
+  padding: 3%;
+  border-radius: 2vh;
+  background-color: cornflowerblue;
+  white-space: nowrap;
+}
+
+.motto {
+  color: darkolivegreen;
+  font-size: $font-size--sm;
+  line-height: 0;
 }
