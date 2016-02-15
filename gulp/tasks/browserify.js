@@ -23,7 +23,6 @@ function createSourcemap() {
 
 // Based on: http://blog.avisi.nl/2014/04/25/how-to-keep-a-fast-build-with-browserify-and-reactjs/
 function buildScript(file) {
-  
   let bundler = browserify({
     entries: [config.sourceDir + 'js/' + file],
     debug: createSourcemap(),
@@ -74,7 +73,5 @@ function buildScript(file) {
 }
 
 gulp.task('browserify', function() {
-
   return buildScript('main.js');
-
 });

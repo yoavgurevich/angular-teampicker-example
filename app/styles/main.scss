@@ -1,9 +1,22 @@
 @import 'vars';
 @import 'typography';
 
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
 .inline-content {
   flex-direction: row;
-  padding: 0.1%;
+}
+
+.dataView {
+  max-width: 50%;
+  max-height: 66vh;
+}
+
+#court {
+  max-height: 66vh;
+  min-width: 50%;
+  max-width: 66%;
+  padding-right: 5vw;
 }
 
 body {
@@ -18,7 +31,7 @@ body {
 
     .imgRow {
       @extend .inline-content;
-      padding-top: 5%;
+      padding-top: 2%;
     }
   }
   input, select {
@@ -26,30 +39,58 @@ body {
     border-width: 1px;
     border-radius: 0.75vh;
     color: $font-color--light;
-    padding-left: 2%;
+    font-size: large;
+    padding-left: 1%;
     outline: none;
   }
   span, strong {
     white-space: nowrap;
   }
-  ul {
-    list-style-type: none;
+  table {
+    padding-top: 5%;
+    tbody {
+      th, td {
+        min-width: 6vw;
+        text-align: center;
+      }
+      max-height: 66%;
+      min-width: 20vw;
+      overflow-y: scroll;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+    }
   }
 }
 
 .badge {
   color: $font-color--dark;
-  font-size: $font-size--xs;
-  font-weight: 700;
-  width: fit-content;
-  padding: 3%;
-  border-radius: 2vh;
+  font-size: $font-size--sm;
+  font-weight: 900;
+  text-align: center;
+  padding: 10%;
+  max-height: 1vh; max-width: 1vh;
+  border-radius: 100%;
   background-color: cornflowerblue;
   white-space: nowrap;
+}
+
+.filter-options {
+  align-items: flex-start !important;
+  padding: 5% 0;
+}
+
+.heading {
+  color: sandybrown;
+  font-size: xx-large;
+  font-weight: 300;
+  font-family: "Roboto Mono", Menlo, monospace;
+  padding-bottom: 2%;
 }
 
 .motto {
   color: darkolivegreen;
   font-size: $font-size--sm;
+  font-weight: 100 !important;
   line-height: 0;
 }

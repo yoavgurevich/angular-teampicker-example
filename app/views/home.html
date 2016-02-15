@@ -1,23 +1,33 @@
-<h1 class="heading -xlarge">{{home.title | ExampleFilter}}</h1>
+<h1 class="heading">{{home.title | ExampleFilter}}</h1>
 <div class="inline-content">
-    <strong>Search:&nbsp;</strong><input ng-model="query">
+    <img id="court" src="http://stats.nba.com/media/img/halfcourt.svg" />
+    <div class="dataView">
+        <div class="filter-options">
+            <div class="inline-content">
+                <strong>Search:&nbsp;</strong>
+                <input ng-model="query">
+                &nbsp;&nbsp;
+                <strong>Sort by:&nbsp;</strong>
+                <select ng-model="orderProp">
+                    <option value="lastname">Name</option>
+                    <option value="position">Position</option>
+                </select>
+            </div>
+        </div>
+        <table>
+            <tbody>
+                <th>Jersey</th>
+                <th>Player</th>
+                <th>Position</th>
+                <tr ng-repeat="player in home.players | filter:query | orderBy:orderProp">
+                    <td><p>{{player.jersey}}</p></td>
+                    <td><span>{{player.firstname + ' ' + player.lastname}}</span></td>
+                    <td><p class="motto">{{player.position}}</p></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
-<div class="inline-content">
-    <strong>Sort by:&nbsp;</strong>
-    <select ng-model="orderProp">
-        <option value="name">Alphabetical</option>
-        <option value="age">Newest</option>
-    </select>
-</div>
-<ul>
-    <ul>
-        <li ng-repeat="phone in home.phones | filter:query | orderBy:orderProp">
-            <div class="inline-content"><span>{{phone.name}}&nbsp;&nbsp;&nbsp;&nbsp;</span><p class="badge">{{phone.age}} Yrs. Old</p></div>
-            <p class="motto">{{phone.snippet | quoteFilter }}</p>
-        </li>
-    </ul>
-</ul>
-<p>Phone Inventory Total: {{home.phones.length}}</p>
 <div class="imgRow">
     <img src="images/angular.png" height="100" example-directive />
     <img src="images/gulp.png" height="100" />
