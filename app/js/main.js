@@ -1,5 +1,4 @@
 import angular from 'angular';
-require('angular-animate');
 
 // angular modules
 import constants from './constants';

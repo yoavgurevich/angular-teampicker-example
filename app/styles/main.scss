@@ -1,8 +1,6 @@
 @import 'vars';
 @import 'typography';
 
-.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
-
 .inline-content {
   flex-direction: row;
 }
@@ -12,11 +10,45 @@
   max-height: 66vh;
 }
 
-#court {
+#canvas {
+  background: url('http://stats.nba.com/media/img/halfcourt.svg') no-repeat;
   max-height: 66vh;
-  min-width: 50%;
-  max-width: 66%;
-  padding-right: 5vw;
+  min-height: 60vh;
+  min-width: 33vw;
+}
+
+#gfPos {
+  position: relative;
+  top: 30vh;
+}
+
+#gPos {
+  position: relative;
+  top: 25vh;
+  left: 10vw;
+}
+
+#cPos {
+  position: relative;
+  top: 15vh;
+  left: 7vw;
+}
+
+#fPos {
+  position: relative;
+  top: 5vh;
+  left: 7vw;
+}
+
+#cfPos {
+  position: relative;
+  top: 9vh;
+  right: 10vw;
+}
+
+a {
+  text-decoration: none;
+  color: red;
 }
 
 body {

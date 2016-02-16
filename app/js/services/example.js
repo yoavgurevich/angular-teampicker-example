@@ -5,7 +5,7 @@ function ExampleService($http) {
 
   service.get = function() {
     return new Promise((resolve, reject) => {
-      $http.get('apiPath').success((data) => {
+      $http.get('/players').success((data) => {
         resolve(data);
       }).error((err, status) => {
         reject(err, status);

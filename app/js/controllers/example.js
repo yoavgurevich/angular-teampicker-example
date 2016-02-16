@@ -1,75 +1,61 @@
+import playerData from '../players.json';
+
 function ExampleCtrl() {
+  'ngInject';
+
   // ViewModel
   const vm = this;
 
   vm.title = 'AngularJS 1.5 Tutorial Using Gulp and Browserify';
-  vm.players = [
-    {'firstname': 'Trevor',
-    'jersey': '1',
-    'lastname': 'Ariza',
-    'playerid': 2772,
-    'position': 'F'},
-    {'firstname': 'Nick',
-      'jersey': '3',
-      'lastname': 'Johnson',
-      'playerid': 203910,
-      'position': 'G'},
-    {'firstname': 'Josh',
-      'jersey': '5',
-      'lastname': 'Smith',
-      'playerid': 2746,
-      'position': 'F'},
-    {'firstname': 'Terrence',
-      'jersey': '6',
-      'lastname': 'Jones',
-      'playerid': 203093,
-      'position': 'F'},
-    {'firstname': 'Joey',
-      'jersey': '8',
-      'lastname': 'Dorsey',
-      'playerid': 201595,
-      'position': 'C-F'},
-    {'firstname': 'Pablo',
-      'jersey': '9',
-      'lastname': 'Prigioni',
-      'playerid': 203143,
-      'position': 'G'},
-    {'firstname': 'Dwight',
-      'jersey': '12',
-      'lastname': 'Howard',
-      'playerid': 2730,
-      'position': 'C'},
-    {'firstname': 'James',
-      'jersey': '13',
-      'lastname': 'Harden',
-      'playerid': 201935,
-      'position': 'G'},
-    {'firstname': 'Clint',
-      'jersey': '15',
-      'lastname': 'Capela',
-      'playerid': 203991,
-      'position': 'C'},
-    {'firstname': 'Kostas',
-      'jersey': '16',
-      'lastname': 'Papanikolaou',
-      'playerid': 203123,
-      'position': 'F'},
-    {'firstname': 'Jason',
-      'jersey': '31',
-      'lastname': 'Terry',
-      'playerid': 1891,
-      'position': 'G'},
-    {'firstname': 'KJ',
-      'jersey': '32',
-      'lastname': 'McDaniels',
-      'playerid': 203909,
-      'position': 'G-F'},
-    {'firstname': 'Corey',
-      'jersey': '33',
-      'lastname': 'Brewer',
-      'playerid': 201147,
-      'position': 'G-F'}
+  vm.players = playerData;
+  vm.positions = [
+    {
+      id: 'c',
+      pName: 'VACANT',
+      filled: false
+    },
+    {
+      id: 'f',
+      pName: 'VACANT',
+      filled: false
+    },
+    {
+      id: 'cf',
+      pName: 'VACANT',
+      filled: false
+    },
+    {
+      id: 'g',
+      pName: 'VACANT',
+      filled: false
+    },
+    {
+      id: 'gf',
+      pName: 'VACANT',
+      filled: false
+    }
   ];
+  vm.findPosition = function(key) {
+    for (var i = 0; i < vm.positions.length; i++) {
+      if (vm.positions[i].id === key) {
+        return vm.positions[i];
+      }
+    }
+  };
+  vm.placePlayer = function(playerName, position) {
+    var foundPos = vm.findPosition(position.replace(/-/g, '').toLowerCase());
+    foundPos.pName = playerName;
+    if(!foundPos.filled) {
+      foundPos.filled = true;
+    }
+  };
+  vm.removePlayer = function(position) {
+    var foundPos = vm.findPosition(position);
+    console.log(foundPos);
+    foundPos.filled = false;
+    foundPos.pName = "VACANT";
+    console.log('end of function: ', foundPos);
+  };
 }
 
 export default {

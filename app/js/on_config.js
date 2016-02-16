@@ -11,7 +11,9 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider) {
     title: 'AngularJS Tutorial App'
   });
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider
+      .when('/players', '/public/assets/players.json')
+      .otherwise('/');
 }
 
 export default OnConfig;

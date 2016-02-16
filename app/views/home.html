@@ -1,6 +1,12 @@
 <h1 class="heading">{{home.title | ExampleFilter}}</h1>
 <div class="inline-content">
-    <img id="court" src="http://stats.nba.com/media/img/halfcourt.svg" />
+    <div id="canvas">
+        <a href="#!" ng-click="home.removePlayer('c')" id="cPos">Center: {{home.findPosition('c').pName}}</a>
+        <a href="#!" ng-click="home.removePlayer('cf')" id="cfPos">Power Forward (C-F): {{home.findPosition('cf').pName}}</a>
+        <a href="#!" ng-click="home.removePlayer('f')" id="fPos">Forward: {{home.findPosition('f').pName}}</a>
+        <a href="#!" ng-click="home.removePlayer('g')" id="gPos">Guard: {{home.findPosition('g').pName}}</a>
+        <a href="#!" ng-click="home.removePlayer('gf')" id="gfPos">Point Guard (G-F): {{home.findPosition('gf').pName}}</a>
+    </div>
     <div class="dataView">
         <div class="filter-options">
             <div class="inline-content">
@@ -19,9 +25,9 @@
                 <th>Jersey</th>
                 <th>Player</th>
                 <th>Position</th>
-                <tr ng-repeat="player in home.players | filter:query | orderBy:orderProp">
+                <tr ng-repeat="player in home.players | filter:query | orderBy:orderProp track by $index">
                     <td><p>{{player.jersey}}</p></td>
-                    <td><span>{{player.firstname + ' ' + player.lastname}}</span></td>
+                    <td><a ng-click="home.placePlayer(player.firstname + ' ' + player.lastname, player.position)">{{player.firstname + ' ' + player.lastname}}</a></td>
                     <td><p class="motto">{{player.position}}</p></td>
                 </tr>
             </tbody>
