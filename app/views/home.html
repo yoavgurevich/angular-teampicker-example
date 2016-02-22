@@ -12,41 +12,41 @@
     </div>
 </nav>
 <div class="grid-center">
-    <div class="col-4_sm-12 grid" id="canvas">
-        <div class="col-bottom-3 grid-column" push-left="off-1" drag-it>
+    <div class="col-4_sm-12 grid-column" id="canvas">
+        <div class="col-middle-2 grid-column" drag-it>
             <img
                 ng-src="http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/{{home.findPosition('f').pName | imgFilter}}.png"
                 alt="VACANT"
                 class="img-circle" />
-            <a href="#!" ng-click="home.removePlayer('f')" id="fPos">Forward</a>
+            <a href="#!" ng-click="home.removePlayer('f')">Forward</a>
         </div>
-        <div class="col-middle-3 grid-column" push-left="off-7" drag-it>
+        <div class="col-middle-2 grid-column" drag-it>
             <img
                 ng-src="http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/{{home.findPosition('cf').pName | imgFilter}}.png"
                 alt="VACANT"
                 class="img-circle" />
-            <a href="#!" ng-click="home.removePlayer('cf')" id="cfPos">Power Forward (C-F)</a>
+            <a href="#!" ng-click="home.removePlayer('cf')">Power Forward (C-F)</a>
         </div>
-        <div class="col-3 grid-column" push-left="off-7" drag-it>
+        <div class="col-middle-2 grid-column" drag-it>
             <img
                 ng-src="http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/{{home.findPosition('c').pName | imgFilter}}.png"
                 alt="VACANT"
                 class="img-circle" />
-            <a href="#!" ng-click="home.removePlayer('c')" id="cPos">Center</a>
+            <a href="#!" ng-click="home.removePlayer('c')">Center</a>
         </div>
-        <div class="col-3 grid-column" push-left="off-7" drag-it>
+        <div class="col-middle-2 grid-column" drag-it>
             <img
                 ng-src="http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/{{home.findPosition('g').pName | imgFilter}}.png"
                 alt="VACANT"
                 class="img-circle" />
-            <a href="#!" ng-click="home.removePlayer('g')" id="gPos">Guard</a>
+            <a href="#!" ng-click="home.removePlayer('g')">Guard</a>
         </div>
-        <div class="col-3 grid-column" push-left="off-4" drag-it>
+        <div class="col-middle-2 grid-column" drag-it>
             <img
                 ng-src="http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/{{home.findPosition('gf').pName | imgFilter}}.png"
                 alt="VACANT"
                 class="img-circle" />
-            <a href="#!" ng-click="home.removePlayer('gf')" id="gfPos">Point Guard (G-F)</a>
+            <a href="#!" ng-click="home.removePlayer('gf')">Point Guard (G-F)</a>
         </div>
     </div>
     <div class="col-3">

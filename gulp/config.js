@@ -33,6 +33,7 @@ export default {
   assetExtensions: [
     'js',
     'css',
+    'ico',
     'png',
     'jpe?g',
     'gif',

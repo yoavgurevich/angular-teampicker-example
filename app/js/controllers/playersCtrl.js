@@ -2,11 +2,6 @@ import playerData from '../players.json';
 
 function PlayersCtrl() {
   'ngInject';
-  angular.element(document).ready(function() {
-    $("img").error(function() {
-      $(this).attr('src', 'images/brilliant-basketball-sm.png');
-    });
-  });
 
   // ViewModel
   const vm = this;
