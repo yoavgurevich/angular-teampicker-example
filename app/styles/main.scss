@@ -1,49 +1,25 @@
 @import 'vars';
 @import 'typography';
 
-.inline-content {
-  flex-direction: row;
-}
-
-.dataView {
-  max-width: 50%;
-  max-height: 66vh;
+html, body {
+  max-width: 99vw !important;
 }
 
 #canvas {
   background: url('http://stats.nba.com/media/img/halfcourt.svg') no-repeat;
-  max-height: 66vh;
-  min-height: 60vh;
-  min-width: 33vw;
+  background-size: contain;
+  min-height: 50vh;
+  min-width: 25vw;
+  div {
+    align-items: center;
+    img {
+      max-width: 5vw; max-height: 4vw;
+    }
+  }
 }
 
-#gfPos {
-  position: relative;
-  top: 30vh;
-}
-
-#gPos {
-  position: relative;
-  top: 25vh;
-  left: 10vw;
-}
-
-#cPos {
-  position: relative;
-  top: 15vh;
-  left: 7vw;
-}
-
-#fPos {
-  position: relative;
-  top: 5vh;
-  left: 7vw;
-}
-
-#cfPos {
-  position: relative;
-  top: 9vh;
-  right: 10vw;
+#verTable {
+  max-height: 40vh;
 }
 
 a {
@@ -52,77 +28,59 @@ a {
 }
 
 body {
-  font-family: Helvetica, sans-serif;
+  padding-top: 100px;
+  font-family: $google;
+  -webkit-font-smoothing: antialiased !important;
   color: $font-color--light;
   background-color: $background--dark;
-  padding: $half-space;
-  div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .imgRow {
-      @extend .inline-content;
-      padding-top: 2%;
-    }
+  .badge {
+    background-color: cornflowerblue;
+    color: $font-color--dark;
   }
-  input, select {
+  div {
+    padding-bottom: 2%;
+  }
+  .form-control, select {
     background-color: $background--dark;
     border-width: 1px;
     border-radius: 0.75vh;
     color: $font-color--light;
     font-size: large;
-    padding-left: 1%;
     outline: none;
   }
-  span, strong {
-    white-space: nowrap;
-  }
   table {
-    padding-top: 5%;
+    border: none !important;
     tbody {
       th, td {
-        min-width: 6vw;
         text-align: center;
       }
-      max-height: 66%;
-      min-width: 20vw;
-      overflow-y: scroll;
-      display: flex;
-      flex-direction: column;
-      align-content: center;
     }
   }
-}
-
-.badge {
-  color: $font-color--dark;
-  font-size: $font-size--sm;
-  font-weight: 900;
-  text-align: center;
-  padding: 10%;
-  max-height: 1vh; max-width: 1vh;
-  border-radius: 100%;
-  background-color: cornflowerblue;
-  white-space: nowrap;
-}
-
-.filter-options {
-  align-items: flex-start !important;
-  padding: 5% 0;
+  .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    border-top: none;
+  }
+  .table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #363636;
+  }
 }
 
 .heading {
-  color: sandybrown;
+  text-align: center;
+  color: azure;
   font-size: xx-large;
-  font-weight: 300;
-  font-family: "Roboto Mono", Menlo, monospace;
+  font-weight: 500;
   padding-bottom: 2%;
 }
 
 .motto {
   color: darkolivegreen;
   font-size: $font-size--sm;
-  font-weight: 100 !important;
-  line-height: 0;
+  font-weight: 500 !important;
+}
+
+.navbar {
+  background-color: #333333;
+  border: none !important;
+  max-height: 70px;
+  max-width: 100%;
 }

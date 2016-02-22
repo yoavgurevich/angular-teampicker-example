@@ -1,41 +1,81 @@
-<h1 class="heading">{{home.title | ExampleFilter}}</h1>
-<div class="inline-content">
-    <div id="canvas">
-        <a href="#!" ng-click="home.removePlayer('c')" id="cPos">Center: {{home.findPosition('c').pName}}</a>
-        <a href="#!" ng-click="home.removePlayer('cf')" id="cfPos">Power Forward (C-F): {{home.findPosition('cf').pName}}</a>
-        <a href="#!" ng-click="home.removePlayer('f')" id="fPos">Forward: {{home.findPosition('f').pName}}</a>
-        <a href="#!" ng-click="home.removePlayer('g')" id="gPos">Guard: {{home.findPosition('g').pName}}</a>
-        <a href="#!" ng-click="home.removePlayer('gf')" id="gfPos">Point Guard (G-F): {{home.findPosition('gf').pName}}</a>
+<nav class="navbar navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <div class="navbar-brand" style="display: inline-block;">
+                <img src="images/angular.png" height="40" />
+            </div>
+            <div class="nav navbar-right">
+                <h1>{{::home.title | ExampleFilter}}</h1>
+            </div>
+        </div>
     </div>
-    <div class="dataView">
-        <div class="filter-options">
-            <div class="inline-content">
-                <strong>Search:&nbsp;</strong>
-                <input ng-model="query">
-                &nbsp;&nbsp;
-                <strong>Sort by:&nbsp;</strong>
-                <select ng-model="orderProp">
+</nav>
+<div class="grid-center">
+    <div class="col-4_sm-12 grid" id="canvas">
+        <div class="col-bottom-3 grid-column" push-left="off-1" drag-it>
+            <img
+                ng-src="http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/{{home.findPosition('f').pName | imgFilter}}.png"
+                alt="VACANT"
+                class="img-circle" />
+            <a href="#!" ng-click="home.removePlayer('f')" id="fPos">Forward</a>
+        </div>
+        <div class="col-middle-3 grid-column" push-left="off-7" drag-it>
+            <img
+                ng-src="http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/{{home.findPosition('cf').pName | imgFilter}}.png"
+                alt="VACANT"
+                class="img-circle" />
+            <a href="#!" ng-click="home.removePlayer('cf')" id="cfPos">Power Forward (C-F)</a>
+        </div>
+        <div class="col-3 grid-column" push-left="off-7" drag-it>
+            <img
+                ng-src="http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/{{home.findPosition('c').pName | imgFilter}}.png"
+                alt="VACANT"
+                class="img-circle" />
+            <a href="#!" ng-click="home.removePlayer('c')" id="cPos">Center</a>
+        </div>
+        <div class="col-3 grid-column" push-left="off-7" drag-it>
+            <img
+                ng-src="http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/{{home.findPosition('g').pName | imgFilter}}.png"
+                alt="VACANT"
+                class="img-circle" />
+            <a href="#!" ng-click="home.removePlayer('g')" id="gPos">Guard</a>
+        </div>
+        <div class="col-3 grid-column" push-left="off-4" drag-it>
+            <img
+                ng-src="http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/statscube/players/large/{{home.findPosition('gf').pName | imgFilter}}.png"
+                alt="VACANT"
+                class="img-circle" />
+            <a href="#!" ng-click="home.removePlayer('gf')" id="gfPos">Point Guard (G-F)</a>
+        </div>
+    </div>
+    <div class="col-3">
+        <h1 class="heading"><i class="fa fa-users"></i></span> Player Roster</h1>
+        <div class="grid">
+            <div class="col-7">
+                <input type="text" class="form-control" ng-model="query" placeholder="Search">
+            </div>
+            <div class="col-5">
+                <select class="form-control" ng-model="orderProp">
+                    <option value="" disabled selected hidden>Sort By...</option>
                     <option value="lastname">Name</option>
                     <option value="position">Position</option>
                 </select>
             </div>
+            <div id="verTable" class="col-10 mCustomScrollbar" push-left="off-1" data-mcs-theme="rounded-dots">
+                <table class="table table-striped table-responsive">
+                    <tbody>
+                    <th>Jersey</th>
+                    <th>Player</th>
+                    <th>Position</th>
+                    <tr ng-repeat="player in home.players | filter:query | orderBy:orderProp track by $index">
+                        <td><span class="badge">{{player.jersey}}</span></td>
+                        <td><a ng-click="home.placePlayer(player.firstname + ' ' + player.lastname, player.position)">{{player.firstname + ' ' + player.lastname}}</a></td>
+                        <td><p class="motto">{{player.position}}</p></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <table>
-            <tbody>
-                <th>Jersey</th>
-                <th>Player</th>
-                <th>Position</th>
-                <tr ng-repeat="player in home.players | filter:query | orderBy:orderProp track by $index">
-                    <td><p>{{player.jersey}}</p></td>
-                    <td><a ng-click="home.placePlayer(player.firstname + ' ' + player.lastname, player.position)">{{player.firstname + ' ' + player.lastname}}</a></td>
-                    <td><p class="motto">{{player.position}}</p></td>
-                </tr>
-            </tbody>
-        </table>
     </div>
-</div>
-<div class="imgRow">
-    <img src="images/angular.png" height="100" example-directive />
-    <img src="images/gulp.png" height="100" />
-    <img src="images/browserify.png" height="100" />
 </div>

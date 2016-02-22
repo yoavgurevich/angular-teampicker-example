@@ -1,37 +1,45 @@
 import playerData from '../players.json';
 
-function ExampleCtrl() {
+function PlayersCtrl() {
   'ngInject';
+  angular.element(document).ready(function() {
+    $("img").error(function() {
+      $(this).attr('src', 'images/brilliant-basketball-sm.png');
+    });
+  });
 
   // ViewModel
   const vm = this;
 
-  vm.title = 'AngularJS 1.5 Tutorial Using Gulp and Browserify';
+  vm.title = 'NBA Fan-Team Picker Example';
+  vm.dragOptions = {
+    container: 'canvas'
+  };
   vm.players = playerData;
   vm.positions = [
     {
       id: 'c',
-      pName: 'VACANT',
+      pName: '',
       filled: false
     },
     {
       id: 'f',
-      pName: 'VACANT',
+      pName: '',
       filled: false
     },
     {
       id: 'cf',
-      pName: 'VACANT',
+      pName: '',
       filled: false
     },
     {
       id: 'g',
-      pName: 'VACANT',
+      pName: '',
       filled: false
     },
     {
       id: 'gf',
-      pName: 'VACANT',
+      pName: '',
       filled: false
     }
   ];
@@ -51,14 +59,12 @@ function ExampleCtrl() {
   };
   vm.removePlayer = function(position) {
     var foundPos = vm.findPosition(position);
-    console.log(foundPos);
     foundPos.filled = false;
-    foundPos.pName = "VACANT";
-    console.log('end of function: ', foundPos);
+    foundPos.pName = "";
   };
 }
 
 export default {
-  name: 'ExampleCtrl',
-  fn: ExampleCtrl
+  name: 'PlayersCtrl',
+  fn: PlayersCtrl
 };

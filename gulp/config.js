@@ -41,7 +41,8 @@ export default {
     'otf',
     'ttc',
     'ttf',
-    'woff2?'
+    'woff2?',
+    'json'
   ],
 
   views: {

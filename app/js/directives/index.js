@@ -13,7 +13,7 @@ function declare(directiveMap) {
     }
 
     if (item.fn && typeof item.fn === 'function') {
-      directivesModule.directive(item.name, item.fn);
+      directivesModule.directive(item.name, ['$document', item.fn]);
     } else {
       declare(item);
     }

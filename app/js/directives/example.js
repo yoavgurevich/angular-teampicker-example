@@ -1,5 +1,4 @@
 function ExampleDirective() {
-
   return {
     restrict: 'EA',
     templateUrl: 'directives/example.html',

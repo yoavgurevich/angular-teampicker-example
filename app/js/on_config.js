@@ -6,9 +6,9 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider) {
   $stateProvider
   .state('Home', {
     url: '/',
-    controller: 'ExampleCtrl as home',
+    controller: 'PlayersCtrl as home',
     templateUrl: 'home.html',
-    title: 'AngularJS Tutorial App'
+    title: 'NBA Fan-Team Picker'
   });
 
   $urlRouterProvider
