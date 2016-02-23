@@ -1,7 +1,7 @@
-function dragIt($document) {
+function dragIt() {
     return {
         restrict: 'A',
-        link: function(scope, element, attr) {
+        link: function(scope, element) {
             element.draggable({
                 containment: '#canvas'
             });

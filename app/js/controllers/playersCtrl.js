@@ -1,7 +1,21 @@
 import playerData from '../players.json';
+//import wdk from 'wikidata-sdk';
 
-function PlayersCtrl() {
+function PlayersCtrl($http) {
   'ngInject';
+
+  //const url = wdk.getWikidataIdsFromWikipediaTitles({
+  //  titles: 'List of current NBA team rosters',
+  //  origin: 'https://en.wikipedia.org',
+  //  action: 'centralauthtoken'
+  //});
+  //
+  //$http.get(url)
+  //  .then(function successCallback(response) {
+  //    console.log(response.data);
+  //  }, function errorCallback(response) {
+  //    console.log(response);
+  //});
 
   // ViewModel
   const vm = this;

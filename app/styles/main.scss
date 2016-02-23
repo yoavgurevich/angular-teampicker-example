@@ -12,13 +12,24 @@ html, body {
   min-width: 25vw;
   div {
     align-items: center;
+    position: relative;
     img {
       max-width: 5vw; max-height: 4vw;
     }
     a {
       color: darkorange;
       font-weight: 700;
+      white-space: nowrap;
     }
+  }
+  #fPos, #cfPos {
+    right: 33%;
+  }
+  #cPos, #gPos {
+    left: 20%;
+  }
+  #gfPos {
+    right: 5%;
   }
 }
 
